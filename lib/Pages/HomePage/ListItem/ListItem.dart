@@ -1,9 +1,10 @@
-import 'package:WHiteHat_Assignment/Pages/HomePage/SecondRow.dart';
+import '../../../Providers/Models/WorkFlow.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../Providers/Models/WorkFlow.dart';
-import '../../GenericStyles.dart';
+import '../../../GenericStyles.dart';
 import './FirstRow.dart';
+import './SecondRow.dart';
 
 class ListItem extends StatelessWidget with GenericStyles {
   final WorkFlow item;
@@ -17,7 +18,7 @@ class ListItem extends StatelessWidget with GenericStyles {
         margin: EdgeInsets.only(left: 60, top: 20, right: 10),
         height: 120,
         decoration: BoxDecoration(
-          color: Color(0xFF333366),
+          color: Theme.of(context).primaryColorDark,
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: <BoxShadow>[
@@ -39,15 +40,15 @@ class ListItem extends StatelessWidget with GenericStyles {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: FirstRow(
-                            text: item.flowName,
-                            icon: Icons.text_fields,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            iconSize: 48,
-                          ),
+                        FirstRow(
+                          text: item.flowName,
+                          icon: Icons.text_fields,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          iconSize: 48,
+                          width: 145,
                         ),
                         IconButton(
                             icon: Icon(
@@ -63,10 +64,12 @@ class ListItem extends StatelessWidget with GenericStyles {
                       text: item.createdAt,
                       icon: Icons.outlined_flag,
                       iconColor: Colors.amber,
+                      width: 200,
                     ),
                     SizedBox(height: 5),
                     SecondRow(
                       text: item.currentStage,
+                      width: 200,
                       icon: (item.currentStage == "Created")
                           ? Icons.check_circle
                           : Icons.add_circle,

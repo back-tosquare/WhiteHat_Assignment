@@ -5,8 +5,8 @@ class WorkFlow {
   String createdAt;
   String updatedAt;
   String currentStage;
-  bool completed;
-  bool restricted;
+  String completed;
+  String restricted;
   String flowName;
   String image;
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../GenericStyles.dart';
+import '../../../GenericStyles.dart';
 import './FirstRow.dart';
 
 class SecondRow extends StatelessWidget with GenericStyles {
@@ -12,6 +12,7 @@ class SecondRow extends StatelessWidget with GenericStyles {
     this.iconSize = 18,
     this.spacing = 10,
     this.iconColor = Colors.grey,
+    @required this.width,
   });
 
   final String text;
@@ -21,6 +22,7 @@ class SecondRow extends StatelessWidget with GenericStyles {
   final double iconSize;
   final double spacing;
   final Color iconColor;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class SecondRow extends StatelessWidget with GenericStyles {
           fontSize: 12,
           iconSize: 18,
           spacing: 5,
+          width: width,
         )
       ],
     );

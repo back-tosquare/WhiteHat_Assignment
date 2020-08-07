@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../../GenericStyles.dart';
+import '../../../GenericStyles.dart';
 
 class FirstRow extends StatelessWidget with GenericStyles {
-  FirstRow(
-      {@required this.text,
-      @required this.icon,
-      @required this.fontSize,
-      this.fontWeight = FontWeight.normal,
-      this.iconSize = 18,
-      this.spacing = 10,
-      this.iconColor = Colors.grey});
+  FirstRow({
+    @required this.text,
+    @required this.icon,
+    @required this.fontSize,
+    this.fontWeight = FontWeight.normal,
+    this.iconSize = 18,
+    this.spacing = 10,
+    this.iconColor = Colors.grey,
+    @required this.width,
+  });
 
   final String text;
   final IconData icon;
@@ -19,6 +21,7 @@ class FirstRow extends StatelessWidget with GenericStyles {
   final double iconSize;
   final double spacing;
   final Color iconColor;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +39,13 @@ class FirstRow extends StatelessWidget with GenericStyles {
           size: iconSize,
         ),
         SizedBox(width: spacing),
-        FittedBox(
-          fit: BoxFit.contain,
+        Container(
+          width: width,
           child: Text(
             text,
             style: myTextStyle,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
           ),
         )
       ],

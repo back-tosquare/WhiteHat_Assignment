@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> with LoginUtility {
       )
           .then((value) {
         if (value == null) {
-          showDialogHandler(context);
+          showDialogHandler(context, "Invalid Login Credentials !");
         } else {
           navigateToPageHandler(
             context: context,
@@ -93,6 +93,7 @@ class _LoginPageState extends State<LoginPage> with LoginUtility {
                   passwordType: true,
                   onFieldSubmitted: (_) {},
                   focusNode: passwordFocus,
+                  initialValue: "@2W0mb@t",
                   onSaved: (value) {
                     formValue["password"] = value;
                   },

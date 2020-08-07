@@ -37,9 +37,7 @@ class _GeneralRaisedButtonState extends State<LoginButton> with GenericStyles {
                     color: lightForeground,
                   ),
                 )
-              : CircularProgressIndicator(
-                  backgroundColor: lightForeground,
-                ),
+              : getCircularProgressBar(),
         ),
         onPressed: () {
           widget.onPressed();

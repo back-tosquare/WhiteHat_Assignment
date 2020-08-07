@@ -2,6 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+class DarkButtonTheme {
+  static const TextStyle textStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+
+  static const Color color = Colors.black;
+}
+
 mixin GenericStyles {
   Color get lightForeground {
     return Colors.white;
@@ -18,12 +28,55 @@ mixin GenericStyles {
     );
   }
 
+  ShapeBorder getRoundedShapeAllCorners(double radius) {
+    return RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(radius),
+      ),
+    );
+  }
+
+  ShapeBorder getRoundedShapeTopCorners(double radius) {
+    return RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(radius),
+        topRight: Radius.circular(radius),
+      ),
+    );
+  }
+
+  ShapeBorder getRoundedShapeBottomCorners(double radius) {
+    return RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(radius),
+        bottomRight: Radius.circular(radius),
+      ),
+    );
+  }
+
+  Widget getCircularProgressBar() {
+    return CircularProgressIndicator(
+      valueColor:
+          AlwaysStoppedAnimation<Color>(DarkButtonTheme.textStyle.color),
+    );
+  }
+
   ThemeData get getThemeData {
     return ThemeData(
-      primaryColor: Colors.black,
-      accentColor: Colors.green,
-      appBarTheme: AppBarTheme(color: Colors.blue),
-    );
+        primaryColor: Color(0xFF265d9c),
+        primaryColorDark: Color(0xFF333366),
+        accentColor: Colors.green,
+        appBarTheme: AppBarTheme(color: Color(0xFF00336c)),
+        secondaryHeaderColor: Colors.amber,
+        iconTheme: IconThemeData(color: Colors.white),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Color(0xFF00336c),
+        ),
+        bottomSheetTheme: BottomSheetThemeData(
+          shape: getRoundedShapeTopCorners(25),
+          backgroundColor: Colors.white,
+          elevation: 10,
+        ));
   }
 
   String get randomImagePath {
