@@ -30,12 +30,18 @@ class MyInput extends StatelessWidget with GenericStyles {
       child: TextFormField(
         initialValue: initialValue,
         decoration: InputDecoration(
-          labelText: label,
-          enabledBorder: getInputBorderStyle(Colors.black, 1),
-          focusedBorder: getInputBorderStyle(Colors.deepPurple, 3),
+          hintText: label,
+          focusedErrorBorder:
+              getInputBorderStyle(Theme.of(context).errorColor, 5),
+          enabledBorder: getInputBorderStyle(Theme.of(context).primaryColor, 5),
+          focusedBorder:
+              getInputBorderStyle(Theme.of(context).appBarTheme.color, 5),
+          errorBorder: getInputBorderStyle(Theme.of(context).errorColor, 5),
           hintStyle: generalStyle,
           errorStyle: generalStyle,
           labelStyle: generalStyle,
+          fillColor: Colors.white,
+          filled: true,
         ),
         obscureText: (passwordType != null) ? passwordType : false,
         onFieldSubmitted: onFieldSubmitted,

@@ -22,7 +22,9 @@ class HomePage extends StatelessWidget with HomePageUtility {
 
     debugPrint("Home Page ${dataProvider.getToken}");
 
-    dataProvider.fetchPendingWorkflows().catchError((error) {});
+    dataProvider.fetchPendingWorkflows().catchError((error) {
+      debugPrint("$error");
+    });
 
     return DefaultPage(
       pageTitle: "Pending Workflows",

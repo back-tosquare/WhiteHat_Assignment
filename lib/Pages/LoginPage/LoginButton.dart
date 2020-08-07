@@ -31,11 +31,7 @@ class _GeneralRaisedButtonState extends State<LoginButton> with GenericStyles {
           child: ((!dataProvider.progressIndicator))
               ? Text(
                   "Login",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: lightForeground,
-                  ),
+                  style: DarkButtonTheme.textStyle,
                 )
               : getCircularProgressBar(),
         ),

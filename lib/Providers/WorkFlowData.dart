@@ -115,23 +115,23 @@ class WorkFlowData with ChangeNotifier, GenericConfiguration, GenericStyles {
     }).catchError(genericErrorHandler);
   }
 
-  Future<void> fetchPendingWorkflows() {
+  Future<dynamic> fetchPendingWorkflows() {
     return getPersistentStorageValue().then((_) {
       getHandler(
-              url: "https://flowengine.herokuapp.com/getPendingFlows/",
-              token: getToken)
-          .then((responseMap) {
-        if (getToken != null) {
+        url: "https://flowengine.herokuapp.com/getPendingFlows/",
+        token: getToken,
+      ).then((responseMap) {
+        debugPrint("$responseMap");
+
+        if ((getToken != null)) {
           debugPrint("$getToken $responseMap");
           _items = [];
           responseMap.forEach((item) {
             _items.add(getWorkFlowModel(item));
           });
           notifyListeners();
-        } else {
-          throw HttpException("Authentication Error");
         }
-      });
+      }).catchError(genericErrorHandler);
     });
   }
 }

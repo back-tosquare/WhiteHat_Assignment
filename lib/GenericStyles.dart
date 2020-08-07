@@ -65,6 +65,8 @@ mixin GenericStyles {
     return ThemeData(
         primaryColor: Color(0xFF265d9c),
         primaryColorDark: Color(0xFF333366),
+        primaryColorLight: Colors.blue,
+        errorColor: Colors.red,
         accentColor: Colors.green,
         appBarTheme: AppBarTheme(color: Color(0xFF00336c)),
         secondaryHeaderColor: Colors.amber,

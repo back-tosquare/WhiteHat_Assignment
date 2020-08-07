@@ -19,7 +19,7 @@ class _MyCheckBoxState extends State<MyCheckBox> {
         children: <Widget>[
           Text(
             widget.text,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           SizedBox(width: 10),
           Transform.scale(
@@ -33,8 +33,8 @@ class _MyCheckBoxState extends State<MyCheckBox> {
                   widget.onChecked(value);
                 });
               },
-              activeTrackColor: Colors.blue[200],
-              activeColor: Colors.blue,
+              activeTrackColor: Colors.green[200],
+              activeColor: Colors.green,
             ),
           )
         ],
